@@ -6,21 +6,19 @@ pub(crate) fn read_until(s: &str, b: usize, f: fn(c: char) -> bool) -> Option<us
     let cs = s[b..].char_indices();
     for (i, c) in cs {
         if f(c) {
-            // exclusive fin
             return Some(b + i);
         }
     }
 
-    // EOF
     Some(s.len())
 }
 
+#[derive(Debug)]
 pub(crate) struct Matrix {
-    data: Vec<String>,
+    pub data: Vec<String>,
     pub width: i64,
     pub height: i64,
 }
-
 
 impl Matrix {
     pub fn new(input: &str) -> Matrix {
