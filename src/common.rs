@@ -23,6 +23,7 @@ pub(crate) struct Matrix {
 impl Matrix {
     pub fn new(input: &str) -> Matrix {
         let data: Vec<_> = input
+            .trim()
             .split('\n')
             .filter(|l| l.len() > 0)
             .map(|s| s.to_string())
